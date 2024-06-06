@@ -1,0 +1,42 @@
+/* styles.css */
+body {
+    font-family:  "Comic Sans MS", sans-serif;
+    background: cornflowerblue; /* Example gradient */
+    color: #333; /* Text color */
+}
+
+h1 {
+    color: #fff; /* Heading color */
+    background-color: purple; /* Heading background color */
+    padding: 10px;
+}
+
+form {
+    margin-bottom: 20px;
+}
+
+input[type="text"], select {
+    padding: 8px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}

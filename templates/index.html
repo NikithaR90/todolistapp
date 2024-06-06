@@ -1,0 +1,43 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Management App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <h1>Task Management</h1>
+    <form action="/add_task" method="post">
+        <input type="text" name="title" placeholder="Task Title" required>
+        <select name="category">
+            <option value="Work">Work</option>
+            <option value="Personal">Personal</option>
+            <option value="Shopping">Shopping</option>
+        </select>
+        <select name="depends_on">
+            <option value="">None</option>
+            {% for task in tasks %}
+                <option value="{{ task.id }}">{{ task.title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit">Add Task</button>
+    </form>
+
+    <h2>All Tasks</h2>
+    <form action="/search" method="get">
+        <input type="text" name="keyword" placeholder="Search...">
+        <button type="submit">Search</button>
+    </form>
+    <ul>
+        {% for task in tasks %}
+            <li>{{ task.title }} - {{ task.category }}
+             <form action="/delete_task/{{ task.id }}" method="post" style="display: inline;">
+                <button type="submit">Delete</button>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
+
